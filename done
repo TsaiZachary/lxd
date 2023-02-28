@@ -1,0 +1,138 @@
+import static java.lang.Math.tan;
+
+public class Polygon {
+    private int side;
+    private double length;
+    private String type ;
+
+    private Boolean b;
+
+    /**
+     * This is the default constructor
+     */
+    public Polygon(){
+
+        side = 3;
+        length = 1;
+        type = "Triangle";
+    }
+    /**
+     * This is the constructor that sets a specific polygon.
+     */
+    public Polygon(int NumSides, double SideLength, String ShapeType){
+
+        if (NumSides>2 && SideLength >0){
+            side = NumSides;
+            length = SideLength;
+            type = ShapeType;
+
+
+        }
+        else{
+            side = 3;
+            length = 1;
+            type = "Triangle";
+        }
+/**
+ * The above has a set condition check that verifies the validation of the polygon before setting it values
+ */
+
+    }
+    /**
+     * This lets the user set the shape type
+     */
+    public String getShapeType(){
+        return type;
+    }
+    /**
+     * This lets the user set the length of the polygon
+     */
+    public double getSideLength(){
+        return length;
+    }
+    /**
+     * This lets the user access the private variable side
+     */
+    public int getNumSides(){
+        return side;
+    }
+    /**
+     * This is the perimeter method. It lets you calculate the perimeter of a polygon.
+     */
+    public double calculatePerimeter(){
+        double perimeter = (double)side * length;
+        double a = perimeter * 1000;
+        int b = (int) a;
+        double c = (double)b/1000;
+        perimeter = c;
+        return perimeter;
+    }
+    /**
+     * This calculates the area of a polygon to the third accurate digit.
+     */
+    public double calculateArea(){
+
+
+        double area = (1000*(side*length*length/(4*Math.tan(Math.PI/side))))/1000;
+        double newA = area * 1000;
+        double newB = Math.round(newA);
+        double newC = newB/1000;
+        return newC;
+
+
+
+
+    }
+    /**
+     * Returns area
+     */
+    public double getArea(){
+        return calculateArea();
+    }
+
+    /**
+     * A setter to change private variables
+     */
+
+    public void setNumSides(int numSides){
+        if (numSides > 2) {
+            side = numSides;
+        }
+
+    }
+    /**
+     * A setter to change the private variable side length
+     */
+    public void setSideLength(double SideLength){
+        if (SideLength > 0){
+            length = SideLength;
+        }
+    }
+
+    /**
+     * Sets the type of shape, allows access to the private variable.
+     */
+
+    public void setShapeName(String ShapeName){
+        type = ShapeName;
+    }
+
+    /**
+     * ToString method that prints out the polygon.
+     */
+
+    public String toString() {
+
+        if (length > 0 && side > 2) {
+
+            return "The polygon has a length of " + length + " and it has " + side + " sides " + " and its name is " + type;
+        }
+        else {
+            return "This is not a valid polygon";
+        }
+
+    }
+
+
+
+}
