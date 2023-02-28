@@ -122,10 +122,16 @@ public class Polygon {
      */
 
     public String toString() {
+    
+        double perimeter = (double)side * length;
+        double a = perimeter * 1000;
+        int b = (int) a;
+        double c = (double)b/1000;
+        perimeter = c;
 
         if (length > 0 && side > 2) {
 
-            return "The polygon has a length of " + length + " and it has " + side + " sides " + " and its name is " + type;
+            return "The polygon has a length of " + length + " and it has " + side + " sides " + " and its name is " + type + ", it also has a perimeter of " + perimeter;
         }
         else {
             return "This is not a valid polygon";
